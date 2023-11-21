@@ -1,0 +1,45 @@
+{#<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">#}
+{#<html xmlns="http://www.w3.org/1999/xhtml">#}
+{#<head>#}
+{#<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />#}
+{#<title>Untitled Document</title>#}
+{#</head>#}
+{##}
+{#<body>#}
+{% extends 'freelance/freelancer_index.html' %}
+{% block body %}
+
+    <style>
+        .table-responsive{
+    box-shadow:0 0 20px grey;
+    }
+        .table-responsive  th{
+            background-color: transparent;
+        color: black;
+        font-weight: bold;
+            border-collapse: collapse;
+        }
+ .table-responsive  tr:last-of-type {
+    border-bottom: 2px solid red;
+    }
+</style>
+
+<form id="form1" name="form1" method="post" action="/freelancer/scomp/">
+   {% csrf_token %}
+  <div align="center">
+
+    <table width="468" border="0" class="table table-responsive">
+      <tr>
+        <th width="83" scope="col">complaint</th>
+        <th width="369" scope="col"><label for="textarea"></label>
+        <textarea name="textarea" id="textarea" cols="45" rows="5" class="form-control" required></textarea></th>
+      </tr>
+      <tr>
+        <td colspan="2"><div align="center"><input name="send" type="submit" class="btn btn-primary" value="send" /></div></td>
+      </tr>
+    </table>
+  </div>
+</form>
+{#</body>#}
+{#</html>#}
+{% endblock %}

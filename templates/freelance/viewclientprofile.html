@@ -1,0 +1,55 @@
+{#<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">#}
+{#<html xmlns="http://www.w3.org/1999/xhtml">#}
+{#<head>#}
+{#<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />#}
+{#<title>Untitled Document</title>#}
+{#</head>#}
+
+{% extends 'freelance/freelancer_index.html' %}
+{% block body %}
+    <style>
+      .table-responsive{
+          padding: 50px;
+    box-shadow:0 0 20px grey;
+      }
+      .table-responsive  th {
+            background-color: orangered;
+            color: white;
+            font-weight: bold;
+            font-size: .5cm;
+            border-collapse: collapse;
+      }
+      .table-responsive tr:nth-child(odd)
+      {
+          background-color: white;
+      }
+
+      .table-responsive  tr:last-of-type {
+           border-bottom: 2px solid red;
+      }
+</style>
+
+<form action="" method="get">
+  <div align="center">
+
+    <table width="574"  border="0" class="table table-responsive">
+      <tr>
+        <th width="52" height="32" scope="col"><h3>#</h3></th>
+        <th width="158" scope="col">name</th>
+        <th width="165" scope="col">photo</th>
+        <th width="171" scope="col">&nbsp;</th>
+      </tr>
+      <tr>
+        {% for i in p %}
+        <tr>
+        <td>&nbsp;{{ forloop.counter }}</td>
+        <td>{{ i.cname }}&nbsp
+            <td><img class="img-circle" src="{{ i.cphoto }}" height="100" width="100"/></td>
+
+         <td><a href="/freelancer/vicmore/{{ i.id }}">view more </a></td>
+      </tr>
+        {% endfor %}
+    </table>
+  <a href="#"></a>  </div>
+</form>
+{% endblock %}

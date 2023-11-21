@@ -1,0 +1,64 @@
+{#<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">#}
+{#<html xmlns="http://www.w3.org/1999/xhtml">#}
+{#<head>#}
+{#<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />#}
+{#<title>Untitled Document</title>#}
+{#</head>#}
+{##}
+{#<body>#}
+{% extends 'client/client_index.html' %}
+{% block body %}
+<form id="form1" name="form1" method="post" action="/freelancer/search/">
+{% csrf_token %}
+
+ <style>
+      .table-responsive{
+          padding: 50px;
+    box-shadow:0 0 20px grey;
+      }
+      .table-responsive  th {
+            background-color: orangered;
+            color: white;
+            font-weight: bold;
+            font-size: .5cm;
+            border-collapse: collapse;
+      }
+      .table-responsive tr:nth-child(odd)
+      {
+          background-color: white;
+      }
+
+      .table-responsive  tr:last-of-type {
+           border-bottom: 2px solid red;
+      }
+</style>
+  <div align="center">
+    <p>
+{#      <label for="textfield"></label>#}
+      <input type="text" name="textfield" id="textfield" class="form-control " width="50" height="70" required/>
+        <input class="btn btn-success" type="submit" name="button" id="button" value="search"/>
+    </p>
+    <table width="636" border="0" class="table table-responsive">
+      <tr>
+        <th width="51" scope="col">#</th>
+        <th width="130" scope="col">freelancer</th>
+        <th width="124" scope="col">service</th>
+        <th width="127" scope="col">details</th>
+        <th width="75" scope="col">price</th>
+        <th width="89" scope="col">order</th>
+      </tr>
+       {% for i in p %}
+        <tr>
+        <td>&nbsp;{{ forloop.counter }}</td>
+            <td>{{ i.flogin.fname }}</td>
+      <td>{{ i.service }}</td>
+      <td>{{ i.service_details }}</td>
+      <td>{{ i.price }}</td>
+        <td><div align="center"><a href="/freelancer/sentorder/{{ i.id }}" class="btn btn-primary">order</a></div></td>
+
+        </tr>
+      {% endfor %}
+    </table>
+  </div>
+</form>
+{% endblock %}

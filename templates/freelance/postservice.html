@@ -1,0 +1,50 @@
+{#<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">#}
+{#<html xmlns="http://www.w3.org/1999/xhtml">#}
+{#<head>#}
+{#<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />#}
+{#<title>Untitled Document</title>#}
+{#</head>#}
+{##}
+{#<body>#}
+{% extends 'freelance/freelancer_index.html' %}
+{% block body %}
+
+ <style>
+        .table-responsive{
+    box-shadow:0 0 20px grey;
+    }
+        .table-responsive  th{
+            background-color: transparent;
+        color: black;
+        font-weight: bold;
+            border-collapse: collapse;
+        }
+ .table-responsive  tr:last-of-type {
+    border-bottom: 2px solid red;
+    }
+</style>
+
+<form action="/freelancer/servicepost/" method="post">
+{% csrf_token %}
+<table align="center" width="355" border="0" class="table table-responsive">
+  <tr>
+    <th width="180" scope="col">service</th>
+    <th width="159" scope="col"><input class="form-control" type="text" name="textfield" id="textfield" required/>    </th>
+  </tr>
+  <tr>
+    <th scope="row">details</th>
+    <td><label for="textarea"></label>
+      <textarea class="form-control" name="textarea" id="textarea" cols="45" rows="5" required></textarea></td>
+  </tr>
+  <tr>
+    <th scope="row">price</th>
+    <td><input class="form-control" type="tel" name="textfield3" id="textfield3" required/></td>
+  </tr>
+  <tr>
+      <th colspan="2" scope="row"><div align="center"><input type="submit" name="button" id="button" class="btn btn-primary" value="add" /></div></th>
+    </tr>
+</table>
+</form>
+{#</body>#}
+{#</html>#}
+{% endblock %}

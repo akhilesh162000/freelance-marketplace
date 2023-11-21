@@ -1,0 +1,121 @@
+{#<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">#}
+{#<html xmlns="http://www.w3.org/1999/xhtml">#}
+{#<head>#}
+{#<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />#}
+{#<title>Untitled Document</title>#}
+{#</head>#}
+{% extends 'admin/admin_index.html' %}
+{% block body %}
+ <style>
+      .table-responsive{
+          padding: 50px;
+    box-shadow:0 0 20px grey;
+      }
+      .table-responsive  th {
+            background-color: orangered;
+            color: white;
+            font-weight: bold;
+            font-size: .5cm;
+            border-collapse: collapse;
+      }
+      .table-responsive tr:nth-child(odd)
+      {
+          background-color: white;
+      }
+
+      .table-responsive  tr:last-of-type {
+           border-bottom: 2px solid red;
+      }
+ .img-circle{
+     padding:0px;
+    box-sizing: border-box;
+    border: solid lightgray;
+ }
+
+</style>
+
+
+{#    <style>#}
+{#        .table-striped{#}
+{#    box-shadow:0 0 20px rgba(0,0,0,0.15);#}
+{#    }#}
+{#        .table-striped  th{#}
+{#            background-color: #00c054;#}
+{#        color: white;#}
+{#        font-weight: bold;#}
+{#            border-collapse: collapse;}#}
+{#            border: 1px solid black;#}
+{#        }#}
+{#        .table-striped td {#}
+{#            padding: 1cm;#}
+{#        }#}
+{#    tr:nth-child(even)#}
+{#        {#}
+{#            background-color: white;#}
+{#        }#}
+{#        .table-striped  tr:last-of-type {#}
+{#    border-bottom: 2px solid green;#}
+{#    }#}
+{#    </style>#}
+{#        background-color: #00c054;  #}
+{#<style>#}
+{#.table-striped{#}
+{#    border-collapse: collapse;#}
+{#    margin: 25px 0;#}
+{#    font-size: .9cm;#}
+{#    min-width: 400px;#}
+{#    border-radius:5px 5px 0 0;#}
+{#    overflow:hidden;#}
+{#    box-shadow:0 0 20px rgba(0,0,0,0.15);#}
+{#}#}
+{#.table-striped thead tr{#}
+{#    background-color: #00aa00;#}
+{#    color: white;#}
+{#    text-align: left;#}
+{#    font-weight: bold;#}
+{#}#}
+{#.table-striped th,#}
+{#.table-striped td{#}
+{#    padding: 12px 15px;#}
+{#}#}
+{##}
+{#    .table-striped tbody tr{#}
+{#        border-bottom: 1px solid gainsboro;#}
+{#    }#}
+{#.table-striped tbody tr:nth-of-type(even)#}
+{#{#}
+{#    background-color: gainsboro;#}
+{#}#}
+{#.table-striped tbody tr:last-of-type{#}
+{#    border-bottom: 2px solid green;#}
+{#}#}
+{#.table-striped tbody tr.active-row{#}
+{#    font-weight: bold;#}
+{#    color: #00aa00;#}
+{#    in tr class=active row#}
+{#}#}
+{#</style>#}
+<form action="" method="get">
+{% csrf_token %}
+  <div align="center">
+{#175#}
+    <table  class="table table-responsive" width="574"  border="0">
+      <tr>
+        <th width="52" height="32" scope="col"><h3>#</h3></th>
+        <th width="158" scope="col">Name</th>
+        <th width="165" scope="col">Photo</th>
+        <th width="171" scope="col" >&nbsp;</th>
+      </tr>
+        {% for i in p %}
+        <tr>
+        <td>&nbsp;{{ forloop.counter }}</td>
+        <td>{{ i.fname }}&nbsp
+            <td><img class="img-circle" height="100" width="100" src="{{ i.fphoto }}"/></td>
+
+         <td><a class="btn btn-primary" href="/freelancer/vfreelancer_more/{{ i.id }}">view more </a></td>
+      </tr>
+        {% endfor %}
+    </table>
+    <a href="#"></a>  </div>
+</form>
+{% endblock %}

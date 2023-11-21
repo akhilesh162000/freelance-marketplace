@@ -1,0 +1,40 @@
+{#<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">#}
+{#<html xmlns="http://www.w3.org/1999/xhtml">#}
+{#<head>#}
+{#<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />#}
+{#<title>Untitled Document</title>#}
+{#</head>#}
+<style>
+        .table-responsive{
+    box-shadow:0 0 20px grey;
+    }
+        .table-responsive  th{
+            background-color: transparent;
+        color: black;
+        font-weight: bold;
+            border-collapse: collapse;
+        }
+ .table-responsive  tr:last-of-type {
+    border-bottom: 2px solid red;
+    }
+</style>
+{% extends 'admin/admin_index.html' %}
+{% block body %}
+
+<form action="/freelancer/notifpost1/{{ flid }}" method="post">
+    {% csrf_token %}
+<table class="table table-responsive"  width="272"  border="0" align="center">
+  <tr>
+      <th>Notification </th>
+    <th height="127" scope="row">
+      <textarea  class="form-control" type="text" name="textarea" id="textarea" cols="45" rows="5" required></textarea>
+    </th>
+  </tr>
+  <tr>
+    <th colspan="2" height="38" scope="row">
+        <div align="center"><input class="btn btn-primary" align="center" type="submit" name="send" id="send" value="send" />
+        </div></th>
+  </tr>
+</table>
+</form>
+{% endblock %}

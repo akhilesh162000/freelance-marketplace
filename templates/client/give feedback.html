@@ -1,0 +1,52 @@
+{#<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">#}
+{#<html xmlns="http://www.w3.org/1999/xhtml">#}
+{#<head>#}
+{#<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />#}
+{#<title>Untitled Document</title>#}
+{#</head>#}
+{##}
+{#<body>#}
+{% extends 'client/client_index.html' %}
+{% block body %}
+
+    <style>
+        .table-responsive{
+    box-shadow:0 0 20px grey;
+    }
+        .table-responsive  th{
+            background-color: transparent;
+        color: black;
+        font-weight: bold;
+            border-collapse: collapse;
+        }
+ .table-responsive  tr:last-of-type {
+    border-bottom: 2px solid red;
+    }
+</style>
+
+<form action="/freelancer/feedback/{{ sid }}" method="post">
+    {% csrf_token %}
+  <div align="center">
+{#    <table width="253"  border="0" class="table table-responsive">#}
+{#      <tr>#}
+{#        <th class="form-control" width="121" height="187" scope="col">feedback</th>#}
+{#        <th width="116" scope="col">#}
+{#        <textarea name="textarea" id="textarea" cols="45" rows="5"></textarea></th>#}
+{#      </tr>#}
+      <table width="468" border="0" class="table table-responsive">
+      <tr>
+        <th width="83" scope="col">Feedback</th>
+        <th width="369" scope="col">
+        <textarea name="textarea" class="form-control" id="textarea" cols="45" rows="5" required></textarea></th>
+      </tr>
+      <tr>
+        <td colspan="2"><div align="center">
+          <input type="submit" class="btn btn-primary" name="button" id="button" value="Submit" />
+        </div></td>
+      </tr>
+  </table>
+  </div>
+</form>
+{#</body>#}
+{#</html>#}
+{% endblock %}

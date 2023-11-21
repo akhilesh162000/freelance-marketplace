@@ -1,0 +1,74 @@
+{#<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">#}
+{#<html xmlns="http://www.w3.org/1999/xhtml">#}
+{#<head>#}
+{#<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />#}
+{#<title>Untitled Document</title>#}
+{#</head>#}
+{##}
+{#<body>#}
+{% extends 'client/client_index.html' %}
+{% block body %}
+{#    <style>#}
+{#.input100 {#}
+{#  font-family: Poppins-Regular, sans-serif;#}
+{#  font-size: 15px;#}
+{#  color: #555555;#}
+{#border: none;#}
+{#  display:flex;#}
+{#  width: 50%;#}
+{#  background: transparent;#}
+{##}
+{#}#}
+    <style>
+        .table-responsive{
+    box-shadow:0 0 20px grey;
+    }
+        .table-responsive  th{
+            background-color: transparent;
+        color: black;
+        font-weight: bold;
+            border-collapse: collapse;
+        }
+ .table-responsive  tr:last-of-type {
+    border-bottom: 2px solid red;
+    }
+</style>
+
+<form action="/freelancer/profupdate/" method="post" enctype="multipart/form-data" name="form1" id="form1">
+{% csrf_token %}
+  <table width="409"  border="0" align="center" class="table table-responsive">
+    <tr>
+      <th colspan="2" scope="row"><label for="fileField"></label>
+      <input type="file" name="fileField" id="fileField" class="form-control" required/></th>
+    </tr>
+    <tr>
+      <th width="165" height="27" scope="row">Name</th>
+      <td width="228"><label for="textfield"></label>
+      <input  type="text" class="form-control"  name="textfield" id="textfield"  value="{{ d.cname }}" required/></td>
+    </tr>
+    <tr>
+      <th height="27" scope="row">Place</th>
+      <td><label for="textfield"></label>
+      <input type="text" name="textfield2" id="textfield" value="{{ d.cplace }}" class="form-control" required/></td>
+    </tr>
+    <tr>
+      <th height="27" scope="row">Pin</th>
+      <td><label for="textfield"></label>
+      <input type="tel" name="textfield3" id="textfield" value="{{ d.cpin }}" pattern="[0-9]{6}" class="form-control" required/></td>
+    </tr>
+    <tr>
+      <th height="27" scope="row">email</th>
+      <td><label for="textfield"></label>
+      <input type="text" name="textfield4" id="textfield" value="{{ d.cemail }}" class="form-control" required/></td>
+    </tr>
+    <tr>
+      <th height="27" scope="row">Phone_no</th>
+      <td><label for="textfield"></label>
+      <input class="form-control" type="tel" name="textfield5" pattern="[6-9][0-9]{9}" id="textfield" value="{{ d.cphone }}" required/></td>
+    </tr>
+    <tr>
+        <th height="43" colspan="2" scope="row"><div align="center"><input type="submit" class="btn btn-primary" name="button" id="button" value="Update" /></div></th>
+    </tr>
+  </table>
+</form>
+{% endblock %}

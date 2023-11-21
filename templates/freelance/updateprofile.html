@@ -1,0 +1,80 @@
+{#<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">#}
+{#<html xmlns="http://www.w3.org/1999/xhtml">#}
+{#<head>#}
+{#<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />#}
+{#<title>Untitled Document</title>#}
+{#</head>#}
+{##}
+{#<body>#}
+
+{% extends 'freelance/freelancer_index.html' %}
+{% block body %}
+
+    <style>
+        .table-responsive{
+    box-shadow:0 0 20px grey;
+    }
+        .table-responsive  th{
+            background-color: transparent;
+        color: black;
+        font-weight: bold;
+            border-collapse: collapse;
+        }
+ .table-responsive  tr:last-of-type {
+    border-bottom: 2px solid red;
+    }
+</style>
+
+<form action="/freelancer/profileupdate/" method="post" enctype="multipart/form-data">
+{% csrf_token %}
+  <p>&nbsp;</p>
+  <table width="445"  border="0" class="table table-responsive" align="center">
+    <tr>
+    <th height="111" colspan="2" scope="row"><label for="fileField"></label>
+      <input class="form-control" type="file" name="fileField" id="fileField" value="{{ d.fphoto }}" required/></th>
+    </tr>
+  <tr>
+    <th width="153" scope="row">name</th>
+    <td width="276"><label for="textfield"></label>
+      <input class="form-control" type="text" name="textfield" id="textfield" value="{{ d.fname }}" required/></td>
+  </tr>
+  <tr>
+    <th height="34" scope="row">place</th>
+    <td><label for="textfield"></label>
+      <input class="form-control" type="text" name="textfield2" id="textfield" value="{{ d.fplace }}" required/></td>
+  </tr>
+  <tr>
+    <th scope="row">post</th>
+    <td><label for="textfield"></label>
+      <input type="text" name="textfield3" id="textfield" value="{{ d.fpost }} " class="form-control" required/></td>
+  </tr>
+  <tr>
+    <th scope="row">pin</th>
+    <td><label for="textfield"></label>
+      <input class="form-control" type="tel" name="textfield4" id="textfield" value="{{ d.fpin }}" pattern="[0-9]{6}" required/></td>
+  </tr>
+  <tr>
+    <th scope="row">email</th>
+    <td><label for="textfield"></label>
+      <input class="form-control" type="text" name="textfield5" id="textfield" value="{{ d.femail }}" required/></td>
+  </tr>
+  <tr>
+    <th scope="row">contact</th>
+    <td><label for="textfield"></label>
+      <input class="form-control" type="tel" name="textfield6" id="textfield" value="{{ d.fcontact }}" pattern="[6-9][0-9]{9}" required/></td>
+  </tr>
+  <tr>
+    <th scope="row">experiance</th>
+    <td><label for="textarea"></label>
+      <textarea class="form-control" name="textarea" id="textarea" cols="45" rows="5" required>{{ d.fexperiance }} </textarea></td>
+  </tr>
+  <tr>
+    <th scope="row">skill</th>
+    <td><textarea class="form-control" name="textarea2" id="textarea2" cols="45" rows="5" required>{{ d.skill }} </textarea></td>
+  </tr>
+  <tr>
+    <th height="31" colspan="2" scope="row"><input class="btn btn-primary" type="submit" name="button" id="button" value="update" /></th>
+    </tr>
+</table>
+</form>
+{% endblock %}

@@ -1,0 +1,57 @@
+{#<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">#}
+{#<html xmlns="http://www.w3.org/1999/xhtml">#}
+{#<head>#}
+{#<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />#}
+{#<title>Untitled Document</title>#}
+{#</head>#}
+{##}
+{#<body>#}
+{% extends 'freelance/freelancer_index.html' %}
+{% block body %}
+
+  <style>
+        .table-responsive{
+    box-shadow:0 0 20px grey;
+    }
+        .table-responsive  th{
+            background-color: transparent;
+        color: black;
+        font-weight: bold;
+            border-collapse: collapse;
+        }
+ .table-responsive  tr:last-of-type {
+    border-bottom: 2px solid red;
+    }
+</style>
+
+<form action="" method="get">
+  <div align="center">
+    <table width="502"  border="0" class="table table-responsive">
+      <tr>
+          <td colspan="2"><img class="img-circle" src="{{ p.cphoto }}" height="100" width="100"/></td>
+      </tr>
+      <tr>
+        <th width="212" scope="row">name</th>
+        <td width="190">&nbsp;{{ p.cname }}</td>
+      </tr>
+      <tr>
+        <th height="35" scope="row">place</th>
+        <td>&nbsp;{{ p.cplace }}</td>
+      </tr>
+      <tr>
+        <th height="36" scope="row">pin</th>
+        <td>&nbsp;{{ p.cpin }}</td>
+      </tr>
+      <tr>
+        <th height="54" scope="row">email</th>
+        <td>{{ p.cemail }}&nbsp;</td>
+      </tr>
+      <tr>
+        <th scope="row">phone_no</th>
+        <td>{{ p.cphone }}&nbsp;</td>
+      </tr>
+  </table>
+  </div>
+
+</form>
+{% endblock %}

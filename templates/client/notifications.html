@@ -1,0 +1,54 @@
+{#<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">#}
+{#<html xmlns="http://www.w3.org/1999/xhtml">#}
+{#<head>#}
+{#<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />#}
+{#<title>Untitled Document</title>#}
+{#</head>#}
+{##}
+{#<body>#}
+{% extends 'client/client_index.html' %}
+{% block body %}
+   <style>
+      .table-responsive{
+          padding: 50px;
+    box-shadow:0 0 20px grey;
+      }
+      .table-responsive  th {
+            background-color: orangered;
+            color: white;
+            font-weight: bold;
+            font-size: .5cm;
+            border-collapse: collapse;
+      }
+      .table-responsive tr:nth-child(odd)
+      {
+          background-color: white;
+      }
+
+      .table-responsive  tr:last-of-type {
+           border-bottom: 2px solid red;
+      }
+</style>
+<form action="" method="get">
+  <div align="center">
+
+    <table width="342"  border="0" class="table table-responsive">
+      <tr>
+        <th width="37" scope="col">#</th>
+        <th width="86" scope="col">date</th>
+        <th width="197" scope="col">notification</th>
+      </tr>
+
+           {% for i in p %}
+      <tr>
+        <td>&nbsp;{{ forloop.counter }}</td>
+        <td>{{ i.date }}&nbsp;</td>
+          <td>{{ i.notification }}</td>
+
+
+      </tr>
+        {% endfor %}
+    </table>
+  </div>
+</form>
+{% endblock %}

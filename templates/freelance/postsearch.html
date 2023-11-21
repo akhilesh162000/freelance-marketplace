@@ -1,0 +1,59 @@
+{#<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">#}
+{#<html xmlns="http://www.w3.org/1999/xhtml">#}
+{#<head>#}
+{#<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />#}
+{#<title>Untitled Document</title>#}
+{#</head>#}
+{##}
+{#<body>#}
+{% extends 'freelance/freelancer_index.html' %}
+{% block body %}
+<style>
+      .table-responsive{
+          padding: 50px;
+    box-shadow:0 0 20px grey;
+      }
+      .table-responsive  th {
+            background-color: orangered;
+            color: white;
+            font-weight: bold;
+            font-size: .5cm;
+            border-collapse: collapse;
+      }
+      .table-responsive tr:nth-child(odd)
+      {
+          background-color: white;
+      }
+
+      .table-responsive  tr:last-of-type {
+           border-bottom: 2px solid red;
+      }
+</style>
+
+<form id="form1" name="form1" method="post" action="">
+{% csrf_token %}
+  <table width="478"  border="0" class="table table-responsive" align="center">
+    <tr>
+      <th width="56" scope="col">#</th>
+      <th width="128" scope="col">client</th>
+      <th width="198" scope="col">service</th>
+      <th width="68" rowspan="2" scope="col">
+{#      <p><a href="#">reject</a></p></th>#}
+    </tr>
+  <tr>
+    {% for i in p %}
+        <tr>
+        <td>&nbsp;{{ forloop.counter }}</td>
+            <td>{{ i.clogin.cname }}</td>
+      <td>{{ i.service }}</td>
+        <td><div align="center"><a href="/freelancer/accept/{{ i.id }}" class="btn btn-primary">acccept</a></div></td>
+{#        <td><div align="center"><a href="/freelancer/reject/{{ i.id }}">reject</a></div></td>#}
+
+        </tr>
+      {% endfor %}
+  </table>
+
+</form>
+{#</body>#}
+{#</html>#}
+{% endblock %}

@@ -1,0 +1,59 @@
+{#<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">#}
+{#<html xmlns="http://www.w3.org/1999/xhtml">#}
+{#<head>#}
+{#<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />#}
+{#<title>Untitled Document</title>#}
+{#</head>#}
+{##}
+{#<body>#}
+{% extends 'freelance/freelancer_index.html' %}
+{% block body %}
+    <style>
+      .table-responsive{
+          padding: 50px;
+    box-shadow:0 0 20px grey;
+      }
+      .table-responsive  th {
+            background-color: orangered;
+            color: white;
+            font-weight: bold;
+            font-size: .5cm;
+            border-collapse: collapse;
+      }
+      .table-responsive tr:nth-child(odd)
+      {
+          background-color: white;
+      }
+
+      .table-responsive  tr:last-of-type {
+           border-bottom: 2px solid red;
+      }
+</style>
+
+<form id="form1" name="form1" method="post" action="">
+
+  <table width="661" border="0" class="table table-responsive">
+    <tr>
+    <th width="149" height="51" scope="col">client name</th>
+{#    <th width="102" scope="col"></th>#}
+    <th width="284" scope="col">service</th>
+    <th width="98" scope="col">status&nbsp;</th>
+  </tr>
+      {% for i in p %}
+  <tr>
+      <td>{{ i.22 }}</td>
+{#      <td>{{ i.2 }}</td>#}
+      <td>{{ i.17 }}</td>
+      {% ifequal i.2 'pending' %}
+    <td><p><a class="btn btn-success" href="/freelancer/oaccept/{{ i.0 }}">accept</a></p>
+
+      <p><a class="btn btn-warning" href="/freelancer/oreject/{{ i.0 }}">reject</a></p></td>
+  {% else %}
+          <td>{{ i.2 }}</td>
+  {% endifequal %}
+  </tr>
+      {% endfor %}
+</table>
+
+</form>
+{% endblock %}

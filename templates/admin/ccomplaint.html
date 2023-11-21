@@ -1,0 +1,65 @@
+
+{% extends 'admin/admin_index.html' %}
+{% block body %}
+
+     <style>
+      .table-responsive{
+          padding: 50px;
+    box-shadow:0 0 20px grey;
+      }
+      .table-responsive  th {
+            background-color: orangered;
+            color: white;
+            font-weight: bold;
+            font-size: .5cm;
+            border-collapse: collapse;
+      }
+      .table-responsive tr:nth-child(odd)
+      {
+          background-color: white;
+      }
+
+      .table-responsive  tr:last-of-type {
+           border-bottom: 2px solid red;
+      }
+</style>
+
+{#<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">#}
+{#<html xmlns="http://www.w3.org/1999/xhtml">#}
+{#<head>#}
+{#<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />#}
+{#<title>Untitled Document</title>#}
+{#<form action="" method="post">#}
+<div align="center ">
+
+  <form id="form1" name="form1" method="post" action="">
+
+  {% csrf_token %}
+    <table class="table table-responsive" width="521" border="0">
+      <tr>
+        <th width="32" scope="col"><h3>#</h3></th>
+        <th width="103" scope="col">Name</th>
+        <th width="86" scope="col">Complaint</th>
+        <th width="86" scope="col">Date</th>
+        <th width="180" scope="col">Reply</th>
+      </tr>
+    {% for i in p %}
+      <tr>
+        <td>&nbsp;{{ forloop.counter }}</td>
+        <td>{{ i.7 }}&nbsp;<br><img height="100" width="150" src="{{ i.12 }}"/></td>
+         <td>{{ i.1 }}</td>
+      <td>{{ i.2 }}</td>
+
+          {% ifequal i.3 "pending" %}
+        <td> <a class="btn btn-success" href="/freelancer/creply/{{ i.0 }}">replay</a></td>
+              {% else %}
+              <td>{{ i.3}}</td>
+      {% endifequal %}
+{#      <td>{{ i.3 }}</td>#}
+      </tr>
+        {% endfor %}
+    </table>
+  </form>
+  <p>&nbsp;</p>
+</div>
+{% endblock %}

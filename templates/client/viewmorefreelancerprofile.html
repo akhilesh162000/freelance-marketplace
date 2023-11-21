@@ -1,0 +1,72 @@
+{#<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">#}
+{#<html xmlns="http://www.w3.org/1999/xhtml">#}
+{#<head>#}
+{#<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />#}
+{#<title>Untitled Document</title>#}
+{#</head>#}
+{##}
+{#<body>#}
+
+{% extends 'client/client_index.html' %}
+{% block body %}
+
+    <style>
+        .table-responsive{
+    box-shadow:0 0 20px grey;
+    }
+        .table-responsive  th{
+            background-color: transparent;
+        color: black;
+        font-weight: bold;
+            border-collapse: collapse;
+        }
+ .table-responsive  tr:last-of-type {
+    border-bottom: 2px solid red;
+    }
+</style>
+
+<form action="" method="get">
+  <div align="center">
+
+    <table width="367" border="0" class="table table-responsive">
+       <tr>
+         <td colspan="2"><img class="img-circle" src="{{ p.fphoto }}" height="100" width="100"/></td>
+        </tr>
+      <tr>
+        <th width="204" height="61" scope="row">name</th>
+        <td width="147">&nbsp;{{ p.fname }}</td>
+      </tr>
+      <tr>
+        <th height="44" scope="row">place</th>
+        <td>&nbsp;{{ p.fplace }}</td>
+      </tr>
+      <tr>
+        <th height="44" scope="row">pin</th>
+        <td>&nbsp;{{ p.fpin }}</td>
+      </tr>
+      <tr>
+        <th height="42" scope="row">email</th>
+        <td>&nbsp;{{ p.femail }}</td>
+      </tr>
+      <tr>
+        <th height="44" scope="row">phone_no</th>
+        <td>&nbsp;{{ p.fcontact }}</td>
+      </tr>
+      <tr>
+        <th height="44" scope="row">experiance</th>
+        <td>{{ p.fexperiance }}</td>
+      </tr>
+      <tr>
+        <th height="44" scope="row">skills</th>
+        <td>&nbsp;{{ p.skill }}</td>
+      </tr>
+      <tr>
+          <th height="74" scope="row"><a href="/freelancer/ffeed/{{ p.id }}" class="btn btn-success">feedbacks</a></th>
+          <th height="74" scope="row"><a href="/freelancer/vfservice/{{ p.id }}" class="btn btn-success">View Services</a></th>
+      </tr>
+
+    </table>
+  </div>
+
+</form>
+{% endblock %}

@@ -1,0 +1,56 @@
+{#<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">#}
+{#<html xmlns="http://www.w3.org/1999/xhtml">#}
+{#<head>#}
+{#<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />#}
+{#<title>Untitled Document</title>#}
+{#</head>#}
+{##}
+{#<body>#}
+{% extends 'client/client_index.html' %}
+{% block body %}
+
+     <style>
+      .table-responsive{
+          padding: 50px;
+    box-shadow:0 0 20px grey;
+      }
+      .table-responsive  th {
+            background-color: orangered;
+            color: white;
+            font-weight: bold;
+            font-size: .5cm;
+            border-collapse: collapse;
+      }
+      .table-responsive tr:nth-child(odd)
+      {
+          background-color: white;
+      }
+
+      .table-responsive  tr:last-of-type {
+           border-bottom: 2px solid red;
+      }
+</style>
+<form id="form1" name="form1" method="post" action="">
+  <div align="center">
+        <p>&nbsp;</p>
+    <table width="402" border="0" class="table table-responsive">
+      <tr>
+        <th width="12" scope="col">#</th>
+        <th width="72" scope="col">service</th>
+        <th width="134" scope="col">details</th>
+        <th width="58" scope="col">price</th>
+        <th width="92" scope="col">order</th>
+      </tr>
+      {% for i in p %}
+        <tr>
+        <td>&nbsp;{{ forloop.counter }}</td>
+        <td>{{ i.service }}</td>
+        <td>{{ i.service_details }}&nbsp;</td>
+        <td>{{ i.price }}&nbsp;</td>
+        <td><div align="center"><a class="btn btn-primary" href="/freelancer/sentorder/{{ i.id }}">order</a></div></td>
+      </tr>
+        {% endfor %}
+    </table>
+  </div>
+</form>
+{% endblock %}
